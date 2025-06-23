@@ -12,18 +12,18 @@
       0% { opacity: 0; transform: translateY(20px); }
       100% { opacity: 1; transform: translateY(0); }
     }
-
+    
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
       50% { transform: scale(1.05); }
     }
-
+    
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
       20%, 40%, 60%, 80% { transform: translateX(5px); }
     }
-
+    
     body {
       font-family: 'Inter', sans-serif;
       min-height: 100vh;
@@ -32,37 +32,32 @@
       align-items: center;
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
       padding: 20px;
-      transition: all 0.3s ease;
     }
-
-    body.dark {
-      background: #1f2937; /* bg-gray-900 */
-    }
-
+    
     .rule-item {
       transition: all 0.3s ease;
     }
-
+    
     .rule-item:hover {
       transform: translateX(5px);
     }
-
+    
     .badge {
       transition: all 0.3s ease;
     }
-
+    
     .badge:hover {
       animation: pulse 0.5s ease;
     }
-
+    
     .shake {
       animation: shake 0.5s;
     }
-
+    
     .fade-in {
       animation: fadeIn 0.6s ease-out forwards;
     }
-
+    
     .delay-1 { animation-delay: 0.1s; }
     .delay-2 { animation-delay: 0.2s; }
     .delay-3 { animation-delay: 0.3s; }
@@ -76,13 +71,13 @@
 <body>
   <div class="chat-rules-container bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full mx-4 overflow-hidden relative fade-in">
     <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-purple-600"></div>
-
+    
     <div class="flex items-center justify-between mb-6">
       <div class="flex items-center">
-        <div class="bg-blue-100 p-3 rounded-full mr-4 icon-bg">
+        <div class="bg-blue-100 p-3 rounded-full mr-4">
           <i class="fas fa-scroll text-blue-600 text-xl"></i>
         </div>
-        <h2 class="text-3xl font-bold text-gray-800 title-text">Правила чата</h2>
+        <h2 class="text-3xl font-bold text-gray-800">Правила чата</h2>
       </div>
       <div class="flex space-x-2">
         <div class="badge bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium flex items-center cursor-pointer" onclick="toggleTheme()">
@@ -93,19 +88,96 @@
         </div>
       </div>
     </div>
-
-    <div class="info-box bg-blue-50 rounded-lg p-4 mb-6 flex items-start">
+    
+    <div class="bg-blue-50 rounded-lg p-4 mb-6 flex items-start">
       <i class="fas fa-info-circle text-blue-500 mt-1 mr-3"></i>
       <p class="text-blue-800 text-sm">Нарушение этих правил приведёт к санкциям: <span class="font-semibold">варн → мут → бан</span>. Будьте вежливы!</p>
     </div>
-
-    <ol class="space-y-4 text-gray-700 rules-list">
-      <!-- Содержимое правил оставляю как есть -->
-      <!-- Твои 8 пунктов правил без изменений -->
-      <!-- Чтобы не повторять — они будут работать без изменений -->
+    
+    <ol class="space-y-4 text-gray-700">
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-1">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+        <strong class="text-gray-800">Уважение к участникам</strong>
+        <p class="mt-1 text-gray-600">Запрещены оскорбления, унижения и провокации. В случае конфликта — варн, потом мут.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+          <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Мут</span>
+        </div>
+      </li>
+      
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-2">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+        <strong class="text-gray-800">Спам и флуд</strong>
+        <p class="mt-1 text-gray-600">Запрещён спам одинаковыми сообщениями, стикерами, гифками или CAPS LOCK. Варн и мут.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+          <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Мут</span>
+        </div>
+      </li>
+      
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-3">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+        <strong class="text-gray-800">Распространение ссылок</strong>
+        <p class="mt-1 text-gray-600">Запрещено без разрешения администрации. Особенно вредоносные и мошеннические ссылки.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+          <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Мут</span>
+          <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Бан</span>
+        </div>
+      </li>
+      
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-4">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+        <strong class="text-gray-800">Оскорбления родителей</strong>
+        <p class="mt-1 text-gray-600">Даже в шутку — сразу варн и мут. Это строгое правило без предупреждений.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+          <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Мут</span>
+        </div>
+      </li>
+      
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-5">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
+        <strong class="text-gray-800">18+ контент</strong>
+        <p class="mt-1 text-gray-600">Запрещены обсуждения и публикация взрослого контента, насилия и шок-контента.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+          <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Мут</span>
+          <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Бан</span>
+        </div>
+      </li>
+      
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-6">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">6</div>
+        <strong class="text-gray-800">Нацизм и расизм</strong>
+        <p class="mt-1 text-gray-600">Запрещены любые проявления дискриминации по расе, национальности и другим признакам.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+          <span class="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded">Мут</span>
+          <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Бан</span>
+        </div>
+      </li>
+      
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-7">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">7</div>
+        <strong class="text-gray-800">Религия и политика</strong>
+        <p class="mt-1 text-gray-600">Эти темы часто приводят к конфликтам. Обсуждать запрещено даже в шутку.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+        </div>
+      </li>
+      
+      <li class="rule-item bg-gray-50 hover:bg-blue-50 p-4 rounded-lg pl-12 relative fade-in delay-8">
+        <div class="absolute left-4 top-4 w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">8</div>
+        <strong class="text-gray-800">Калл (вызов админов)</strong>
+        <p class="mt-1 text-gray-600">Делать может только администрация. Нарушение — варн без предупреждения.</p>
+        <div class="mt-2 flex space-x-2">
+          <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Варн</span>
+        </div>
+      </li>
     </ol>
-
-    <div class="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center footer-text">
+    
+    <div class="mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row justify-between items-center">
       <p class="text-sm text-gray-500 mb-4 sm:mb-0">
         <i class="fas fa-heart text-red-400 mr-1"></i> Соблюдайте правила — и чат будет уютным для всех!
       </p>
@@ -116,72 +188,20 @@
   </div>
 
   <script>
-    function toggleTheme() {
-      // Переключаем body класс .dark для смены фона
-      document.body.classList.toggle('dark');
-
-      // Контейнер
-      const container = document.querySelector('.chat-rules-container');
-      container.classList.toggle('bg-white');
-      container.classList.toggle('bg-gray-800');
-      container.classList.toggle('text-gray-800');
-      container.classList.toggle('text-gray-100');
-
-      // Заголовок
-      document.querySelector('.title-text').classList.toggle('text-gray-800');
-      document.querySelector('.title-text').classList.toggle('text-gray-100');
-
-      // Иконка в заголовке
-      document.querySelector('.icon-bg').classList.toggle('bg-blue-100');
-      document.querySelector('.icon-bg').classList.toggle('bg-gray-700');
-
-      // Info box
-      const infoBox = document.querySelector('.info-box');
-      infoBox.classList.toggle('bg-blue-50');
-      infoBox.classList.toggle('bg-gray-700');
-      infoBox.classList.toggle('text-blue-800');
-      infoBox.classList.toggle('text-gray-200');
-
-      // Пункты правил
-      const ruleItems = document.querySelectorAll('.rule-item');
-      ruleItems.forEach(item => {
-        item.classList.toggle('bg-gray-50');
-        item.classList.toggle('hover:bg-blue-50');
-        item.classList.toggle('bg-gray-700');
-        item.classList.toggle('hover:bg-gray-600');
-        item.classList.toggle('text-gray-700');
-        item.classList.toggle('text-gray-200');
-      });
-
-      // Бейджи
-      const badges = document.querySelectorAll('.badge');
-      badges.forEach(badge => {
-        badge.classList.toggle('bg-green-100');
-        badge.classList.toggle('bg-blue-100');
-        badge.classList.toggle('bg-gray-700');
-        badge.classList.toggle('text-green-800');
-        badge.classList.toggle('text-blue-800');
-        badge.classList.toggle('text-white');
-      });
-
-      // Footer
-      const footer = document.querySelector('.footer-text p');
-      footer.classList.toggle('text-gray-500');
-      footer.classList.toggle('text-gray-300');
-    }
-
+    // Подтверждение правил
     function acceptRules() {
       const button = document.querySelector('button');
       button.innerHTML = '<i class="fas fa-check mr-2"></i> Правила приняты!';
       button.classList.remove('bg-blue-600', 'hover:bg-blue-700');
       button.classList.add('bg-green-500', 'hover:bg-green-600');
       button.classList.add('shake');
-
+      
       setTimeout(() => {
         button.classList.remove('shake');
       }, 500);
     }
-
+    
+    // Поделиться
     function shareRules() {
       if (navigator.share) {
         navigator.share({
@@ -195,7 +215,8 @@
         alert('Ваш браузер не поддерживает функцию "Поделиться". Скопируйте ссылку вручную.');
       }
     }
-
+    
+    // Анимация при загрузке
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         document.querySelectorAll('.fade-in').forEach(el => {
